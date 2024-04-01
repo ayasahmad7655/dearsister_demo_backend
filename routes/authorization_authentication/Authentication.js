@@ -35,9 +35,10 @@ const verifyToken = async (req, res, next) => {
     // console.log(req);
     req.emailData = email;
     // console.log("aaa");
-    next();
+    // next();
+    console.log(req.emailData);
     console.log("aaa");
-    return;
+    // return;
     // const decoded = jwt.verify(token, "aadaa"); // Replace with your secret key
     // console.log(decoded);
     // const email = decoded.user_email;
@@ -51,7 +52,8 @@ const verifyToken = async (req, res, next) => {
     // console.log(report);
     // // ... (token verification logic)
     // // return res.status(401).json({ message: "Unauthorized" });
-    // // next();
+    next();
+    console.log("AA");
   } catch (e) {
     console.log("Error", e);
     res.status(401).json({ message: "error" });
