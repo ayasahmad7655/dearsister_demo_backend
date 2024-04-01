@@ -7,9 +7,8 @@ const router = express.Router();
 const app = express();
 
 app.use(cookieParser()); // Replace with your secret key
-// const verifyToken = (req, res, next)
+
 const verifyToken = async (req, res, next) => {
-  // router.get("/", async (req, res, next) => {
   console.log("Auth");
   try {
     console.log("Cookies", req.cookies);
@@ -19,39 +18,24 @@ const verifyToken = async (req, res, next) => {
     const token = parts.length > 1 ? parts[1] : tokenString;
     console.log(token);
     if (!token) {
-      // console.log(token);
       return res.status(401).json({ message: "Unauthorized" });
     }
 
     const decoded = jwt.verify(token, "aadaa"); // Replace with your secret key
-    // console.log(decoded);
+
     const email = decoded.user_email;
     const user = await User.findOne({ email });
-    // console.log("USER", user);
+
     if (!user) {
       res.status(401).json({ message: "Unauthorized" });
       return;
     }
-    // console.log(req);
+
     req.emailData = email;
-    // console.log("aaa");
-    // next();
+
     console.log(req.emailData);
     console.log("aaa");
-    // return;
-    // const decoded = jwt.verify(token, "aadaa"); // Replace with your secret key
-    // console.log(decoded);
-    // const email = decoded.user_email;
-    // const user = await User.findOne({ email });
-    // console.log(user);
-    // if (!user) {
-    //   res.status(401).json({ message: "Unauthorized" });
-    //   return;
-    // }
-    // const report = await Report.findOne({ email });
-    // console.log(report);
-    // // ... (token verification logic)
-    // // return res.status(401).json({ message: "Unauthorized" });
+
     next();
     console.log("AA");
   } catch (e) {
@@ -61,4 +45,3 @@ const verifyToken = async (req, res, next) => {
 };
 
 export default verifyToken;
-// ... other routes
