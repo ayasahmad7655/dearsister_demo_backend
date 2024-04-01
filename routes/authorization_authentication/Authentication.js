@@ -37,6 +37,7 @@ const verifyToken = async (req, res, next) => {
     console.log("aaa");
 
     next();
+    res.status(200).json({ jjkj: "hbhbh" });
     console.log("AA");
   } catch (e) {
     console.log("Error", e);
