@@ -35,7 +35,7 @@ router.post("/", async (req, res) => {
       // ... other user and report data fields
     };
     // ... (token verification logic)
-    // console.log(mergedData);
+    console.log(mergedData);
     res.status(200).json(mergedData);
     // res.status(200).json({ Message: "Email Not Found" });
     return;

@@ -37,6 +37,7 @@ const verifyToken = async (req, res, next) => {
     // console.log("aaa");
     next();
     console.log("aaa");
+    return;
     // const decoded = jwt.verify(token, "aadaa"); // Replace with your secret key
     // console.log(decoded);
     // const email = decoded.user_email;
