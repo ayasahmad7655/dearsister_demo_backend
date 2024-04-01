@@ -10,6 +10,7 @@ const app = express();
 router.post("/", async (req, res) => {
   console.log("Dashboard User");
   try {
+    console.log(req.body);
     console.log(req.emailData);
     const email = req.emailData;
     const user = await User.findOne({ email });

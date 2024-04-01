@@ -13,7 +13,7 @@ const verifyToken = async (req, res, next) => {
   try {
     // console.log("Cookies", req.cookies);
     console.log(req.body);
-    const tokenString = req.body.cookie; // Assuming your cookie is named 'auth_token'
+    const tokenString = req.body.cookies; // Assuming your cookie is named 'auth_token'
     console.log("TokenString", tokenString);
     const indexOfEqual = tokenString.indexOf("=");
 
