@@ -8,12 +8,12 @@ const router = express.Router();
 const app = express();
 
 router.get("/", async (req, res) => {
-  // console.log("Dashboard User");
+  console.log("Dashboard User");
   try {
-    // console.log(req.emailData);
+    console.log(req.emailData);
     const email = req.emailData;
     const user = await User.findOne({ email });
-    // console.log(user);
+    console.log(user);
 
     const report = await Report.findOne({ email });
     // console.log(report);

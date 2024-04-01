@@ -12,9 +12,9 @@ const verifyToken = async (req, res, next) => {
   // router.get("/", async (req, res, next) => {
   console.log("Auth");
   try {
-    // console.log(req);
+    console.log("Cookies", req.cookies);
     const token = req.cookies.jwt; // Assuming your cookie is named 'auth_token'
-    // console.log(token);
+    console.log(token);
     if (!token) {
       // console.log(token);
       return res.status(401).json({ message: "Unauthorized" });

@@ -34,8 +34,8 @@ router.post("/", async (req, res) => {
       },
       "aadaa"
     );
-    console.log("Token", token);
-    res.cookie("jwt", token);
+    // console.log("Token", token);
+    // res.cookie("jwt", token);
     //   verifyToken; // console.log(res);
     res.status(200).json({ message: "Logged in successfully", token });
     return;
