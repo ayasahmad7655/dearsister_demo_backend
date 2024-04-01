@@ -14,7 +14,9 @@ const verifyToken = async (req, res, next) => {
   try {
     console.log("Cookies", req.cookies);
     console.log(req.body);
-    const token = req.body.cookie.jwt; // Assuming your cookie is named 'auth_token'
+    const tokenString = req.body.cookie; // Assuming your cookie is named 'auth_token'
+    const parts = tokenString.split("=");
+    const token = parts.length > 1 ? parts[1] : tokenString;
     console.log(token);
     if (!token) {
       // console.log(token);
