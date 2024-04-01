@@ -58,23 +58,18 @@ router.post("/", async (req, res) => {
       "aadaa"
     );
     // console.log(res.cookie);
-    try {
-      res.cookie("jwt", token, {
-        // domain: "localhost:3000",
-        // Credentials: "include",
-        // httpOnly: true,
-        // secure: true, // Only use in production (HTTPS)
-      });
-      console.log("ok");
-    } catch (err) {
-      console.error("Error setting cookie:", err);
-      // Handle the error here (e.g., send an error response)
-      res.status(500).json({ message: "Error creating cookie" });
-      return;
-    }
+    // try {
+    //   res.cookie("jwt", token, {});
+    //   console.log("ok");
+    // } catch (err) {
+    //   console.error("Error setting cookie:", err);
+    //   // Handle the error here (e.g., send an error response)
+    //   res.status(500).json({ message: "Error creating cookie" });
+    //   return;
+    // }
 
-    console.log(res.cookie);
-    res.status(200).json({ message: "User registered Suceesfully" });
+    // console.log(res.cookie);
+    res.status(200).json({ message: "User registered Suceesfully", token });
     return;
   } catch (err) {
     console.log("err", err);
