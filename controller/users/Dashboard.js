@@ -10,9 +10,21 @@ const app = express();
 router.post("/", async (req, res) => {
   console.log("Dashboard User");
   try {
-    console.log(req.body);
-    console.log(req.emailData);
-    const email = req.emailData;
+    const tokenString = req.body.cookie; // Assuming your cookie is named 'auth_token'
+    console.log("TokenString", tokenString);
+    const indexOfEqual = tokenString.indexOf("=");
+
+    const tokens = tokenString.slice(indexOfEqual + 1);
+    const token = tokens.slice(0, -1);
+    console.log(token);
+    if (!token) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    const decoded = jwt.verify(token, "aadaa"); // Replace with your secret key
+
+    const email = decoded.user_email;
+    console.log(email);
     const user = await User.findOne({ email });
     console.log(user);
 
