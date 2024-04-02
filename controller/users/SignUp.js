@@ -59,7 +59,7 @@ router.post("/", async (req, res) => {
       },
       "aadaa"
     );
-    // console.log(res.cookie);
+    console.log(token);
     // try {
     //   res.cookie("jwt", token, {});
     //   console.log("ok");
