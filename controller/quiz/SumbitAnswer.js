@@ -16,9 +16,15 @@ router.put("/", async (req, res) => {
   try {
     // const { firstName, lastName, email, password } = req.body;
     const Data = req.body;
-    const jwtToken = req.cookies.jwt;
-    console.log(jwtToken);
-    const decoded = jwt.verify(jwtToken, "aadaa"); // Replace with your secret
+    const tokenString = req.body.cookie; // Assuming your cookie is named 'auth_token'
+    console.log("TokenString", tokenString);
+    const indexOfEqual = tokenString.indexOf("=");
+
+    const tokens = tokenString.slice(indexOfEqual + 1);
+    const token = tokens.slice(0, -1);
+    // const jwtToken = req.cookies.jwt;
+    // console.log(jwtToken);
+    const decoded = jwt.verify(token, "aadaa"); // Replace with your secret
     const email = decoded.user_email;
     console.log(decoded);
     // const user = await User.findOne({ email });
