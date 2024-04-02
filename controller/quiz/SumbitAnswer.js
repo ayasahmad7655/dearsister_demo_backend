@@ -60,8 +60,8 @@ router.put("/", async (req, res) => {
 
     console.log(quizLive);
     console.log("Sumbit Answer");
-    await report.save();
-    await quizLive.save();
+    await report.save({ w: "majority" }); // Use 'majority' write concern
+    await quizLive.save({ w: "majority" });
     // const quizdata = await QuizLive.findOne({ email });
     // console.log(quizdata);
     // if (!firstName || !lastName || !email || !password) {
