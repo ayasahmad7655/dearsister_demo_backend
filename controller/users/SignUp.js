@@ -14,6 +14,8 @@ router.post("/", async (req, res) => {
   try {
     const { firstName, lastName, email, password } = req.body;
     console.log("SIGN_UP");
+    console.log(req.body);
+    console.log(firstName);
     if (!firstName || !lastName || !email || !password) {
       res.status(400).json({ Mess: "Enter ALl the Values" });
       return;
