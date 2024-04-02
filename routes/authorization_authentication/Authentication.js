@@ -17,7 +17,8 @@ const verifyToken = async (req, res, next) => {
     console.log("TokenString", tokenString);
     const indexOfEqual = tokenString.indexOf("=");
 
-    const token = tokenString.slice(indexOfEqual + 1);
+    const tokens = tokenString.slice(indexOfEqual + 1);
+    const token = tokens.slice(0, -1);
     console.log(token);
     if (!token) {
       return res.status(401).json({ message: "Unauthorized" });
