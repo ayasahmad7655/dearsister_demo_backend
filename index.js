@@ -47,6 +47,7 @@ app.listen(process.env.PORT, () => {
       console.log("Connection to Mongodb ");
     })
     .catch((err) => {
+      console.log(process.env.MONGODB_URL);
       console.error(err);
     });
   console.log("Connection Settled on Port:-", process.env.PORT);

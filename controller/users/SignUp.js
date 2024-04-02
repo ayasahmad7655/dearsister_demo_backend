@@ -47,9 +47,11 @@ router.post("/", async (req, res) => {
     // newQuizLive.quizesdatas.deleteMany({
     //   attemptedQuizzes: { $undefined: true },
     // });
+    console.log("Saving Started");
     await newQuizLive.save();
     await newUser.save();
     await newReport.save();
+    console.log("Saving Stop");
     // console.log(newUser);
     const token = jwt.sign(
       {
