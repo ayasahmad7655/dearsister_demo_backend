@@ -1,7 +1,7 @@
 import express from "express";
 const router = express.Router();
 import DashBoard from "../../controller/users/Dashboard.js";
-router.get("/", DashBoard);
+router.post("/", DashBoard);
 
 // router.get("/lo", (req, res) => {
 //   try {
