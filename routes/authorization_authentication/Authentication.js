@@ -40,7 +40,7 @@ const verifyToken = async (req, res, next) => {
     console.log("aaa");
 
     next();
-    res.status(200).json({ jjkj: "hbhbh" });
+    // res.status(200).json({ jjkj: "hbhbh" });
     // return;
     // console.log("AA");
     // return;
