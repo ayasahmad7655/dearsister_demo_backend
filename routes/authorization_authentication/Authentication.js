@@ -34,9 +34,9 @@ const verifyToken = async (req, res, next) => {
       return;
     }
 
-    // req.emailData = email;
+    req.emailData = email;
 
-    // console.log(req.emailData);
+    console.log(req.emailData);
     console.log("aaa");
 
     next();
