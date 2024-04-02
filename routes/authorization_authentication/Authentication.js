@@ -9,7 +9,7 @@ const app = express();
 app.use(cookieParser()); // Replace with your secret key
 
 const verifyToken = async (req, res, next) => {
-  console.log("Auth");
+  console.log("Verify Token");
   try {
     // console.log("Cookies", req.cookies);
     console.log(req.body);

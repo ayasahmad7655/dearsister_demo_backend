@@ -13,7 +13,7 @@ app.use(cookieParser());
 router.post("/", async (req, res) => {
   try {
     const { firstName, lastName, email, password } = req.body;
-
+    console.log("SIGN_UP");
     if (!firstName || !lastName || !email || !password) {
       res.status(400).json({ Mess: "Enter ALl the Values" });
       return;
@@ -35,7 +35,7 @@ router.post("/", async (req, res) => {
       email,
     });
     const questions = await Questions.find({});
-    console.log(questions.map((question) => question.title));
+    // console.log(questions.map((question) => question.title));
     const newQuizLive = new QuizLive({
       email,
       attemptedQuizzes: [], // Use ObjectId constructor

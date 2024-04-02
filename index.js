@@ -29,7 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 /* <------------------Routes------------------------->  */
 app.use("/login", LoginRoutes);
 app.use("/signup", SignUpRoutes);
-app.use("/user", Dashboard);
+app.use("/user", verifyToken, Dashboard);
 app.use("/quiz", verifyToken, QuizData);
 app.use("/addquestion", AddQuestion);
 app.use("/sumbitanswer", verifyToken, SumbitAnswer);
