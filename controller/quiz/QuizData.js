@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 const router = express.Router();
 const app = express();
 
-router.get("/", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     console.log("Quiz Data");
     // console.log(req.emailData);

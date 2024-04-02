@@ -1,7 +1,7 @@
 import express from "express";
 const router = express.Router();
 import QuizData from "../../controller/quiz/QuizData.js";
-router.get("/", QuizData);
+router.post("/", QuizData);
 
 // router.get("/lo", (req, res) => {
 //   try {
