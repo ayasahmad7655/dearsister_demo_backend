@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 const router = express.Router();
 const app = express();
 
-app.use(cookieParser()); // Replace with your secret key
+// app.use(cookieParser()); // Replace with your secret key
 
 const verifyToken = async (req, res, next) => {
   console.log("Verify Token");
