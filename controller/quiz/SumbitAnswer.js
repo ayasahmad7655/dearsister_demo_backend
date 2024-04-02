@@ -23,7 +23,7 @@ router.put("/", async (req, res) => {
     const tokens = tokenString.slice(indexOfEqual + 1);
     const token = tokens.slice(0, -1);
     // const jwtToken = req.cookies.jwt;
-    // console.log(jwtToken);
+    console.log("Sumbit Anser", token);
     const decoded = jwt.verify(token, "aadaa"); // Replace with your secret
     const email = decoded.user_email;
     console.log(decoded);
@@ -59,7 +59,7 @@ router.put("/", async (req, res) => {
     quizLive.attemptedQuizzes.push(questionIndex);
 
     console.log(quizLive);
-    // console.log(report);s
+    console.log("Sumbit Answer");
     await report.save();
     await quizLive.save();
     // const quizdata = await QuizLive.findOne({ email });
