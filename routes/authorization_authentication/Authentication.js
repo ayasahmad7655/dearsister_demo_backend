@@ -30,7 +30,7 @@ const verifyToken = async (req, res, next) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-      res.status(401).json({ message: "Unauthorized" });
+      res.status(400).json({ message: "User Unauthorized" });
       return;
     }
 
