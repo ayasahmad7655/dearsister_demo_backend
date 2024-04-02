@@ -32,7 +32,7 @@ app.use("/signup", SignUpRoutes);
 app.use("/user", verifyToken, Dashboard);
 app.use("/quiz", verifyToken, QuizData);
 app.use("/addquestion", AddQuestion);
-app.use("/sumbitanswer", verifyToken, SumbitAnswer);
+app.use("/sumbitanswer", SumbitAnswer);
 app.use("/driveupload", DriveUpload);
 app.get("/livequiz/:index", QuestionsRetrieval);
 
