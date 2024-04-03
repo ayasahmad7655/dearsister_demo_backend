@@ -19,11 +19,16 @@ dotenv.config();
 /* <------------------MiddleWares--------------------> */
 app.use(bodyParser.json());
 // app.use(cookieParser());
-const corsOrigin = process.env.ALLOWED_CORS_ORIGIN;
+const corsOrigin1 = process.env.ALLOWED_CORS_ORIGIN1;
+const corsOrigin2 = process.env.ALLOWED_CORS_ORIGIN2;
+const corsOrigin3 = process.env.ALLOWED_CORS_ORIGIN3;
+// ... (add more for additional origins)
+
+const allowedOrigins = [corsOrigin1, corsOrigin2, corsOrigin3];
 
 app.use(
   cors({
-    origin: corsOrigin,
+    origin: allowedOrigins,
   })
 );
 app.use(express.urlencoded({ extended: true }));
