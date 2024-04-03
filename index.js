@@ -19,10 +19,11 @@ dotenv.config();
 /* <------------------MiddleWares--------------------> */
 app.use(bodyParser.json());
 // app.use(cookieParser());
+const corsOrigin = process.env.ALLOWED_CORS_ORIGIN;
+
 app.use(
   cors({
-    origin: "https://dearsister-demo-frontend.onrender.com/", // Replace with your frontend's origin
-    credentials: true,
+    origin: corsOrigin,
   })
 );
 app.use(express.urlencoded({ extended: true }));
