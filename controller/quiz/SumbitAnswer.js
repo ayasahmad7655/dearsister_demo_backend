@@ -17,16 +17,16 @@ router.put("/", async (req, res) => {
     // const { firstName, lastName, email, password } = req.body;
     const Data = req.body;
     const tokenString = req.body.cookie; // Assuming your cookie is named 'auth_token'
-    console.log("TokenString", tokenString);
+    // console.log("TokenString", tokenString);
     const indexOfEqual = tokenString.indexOf("=");
 
     const tokens = tokenString.slice(indexOfEqual + 1);
     const token = tokens.slice(0, -1);
     // const jwtToken = req.cookies.jwt;
-    console.log("Sumbit Anser", token);
+    // console.log("Sumbit Anser", token);
     const decoded = jwt.verify(token, "aadaa"); // Replace with your secret
     const email = decoded.user_email;
-    console.log(decoded);
+    // console.log(decoded);
     // const user = await User.findOne({ email });
     // console.log(user);
     let report = await Report.findOne({ email });
@@ -36,7 +36,7 @@ router.put("/", async (req, res) => {
       report.highestScore = Data.correctAnswers * 10;
     }
     let quizLive = await QuizLive.findOne({ email });
-    console.log(quizLive);
+    // console.log(quizLive);
     // const questionIndex = parseInt(Data.index, 10); // Convert string index to integer
     // const questionToMove = quizLive.notAttemptedQuizzes.splice(
     //   questionIndex,
@@ -55,11 +55,11 @@ router.put("/", async (req, res) => {
     );
 
     // Add the question to the attempted quizzes array
-    console.log("INDEXX", questionIndex);
+    // console.log("INDEXX", questionIndex);
     quizLive.attemptedQuizzes.push(questionIndex);
 
-    console.log(quizLive);
-    console.log("Sumbit Answer");
+    // console.log(quizLive);
+    // console.log("Sumbit Answer");
     await report.save({ w: "majority" }); // Use 'majority' write concern
     await quizLive.save({ w: "majority" });
     // const quizdata = await QuizLive.findOne({ email });
@@ -67,7 +67,7 @@ router.put("/", async (req, res) => {
     // if (!firstName || !lastName || !email || !password) {
     //   res.status(400).json({ Mess: "Enter ALl the Values" });
     // Handle the error here (e.g., send an error response)
-    console.log("Data", Data);
+    // console.log("Data", Data);
     // const newQuiz = new Questions(quizData);
     // console.log(newQuiz);
     // await newQuiz.save();
@@ -75,7 +75,7 @@ router.put("/", async (req, res) => {
     res.status(200).json({ message: "Sucessfully" });
     return;
   } catch (err) {
-    console.log("jjj");
+    // console.log("jjj");
     console.log("err", err.message);
 
     res.status(500).json({ Error: err.message });

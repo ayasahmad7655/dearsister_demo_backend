@@ -11,7 +11,7 @@ router.post("/", async (req, res) => {
     // console.log(req.emailData);
     const email = req.emailData;
     const QuizDatas = await QuizLive.findOne({ email });
-    console.log(QuizDatas);
+    // console.log(QuizDatas);
     // console.log("aaa");
     res.status(200).json(QuizDatas);
     // const report = await Report.findOne({ email });

@@ -9,17 +9,17 @@ const app = express();
 // app.use(cookieParser()); // Replace with your secret key
 
 const verifyToken = async (req, res, next) => {
-  console.log("Verify Token");
+  // console.log("Verify Token");
   try {
     // console.log("Cookies", req.cookies);
-    console.log(req.body);
+    // console.log(req.body);
     const tokenString = req.body.cookie; // Assuming your cookie is named 'auth_token'
-    console.log("TokenString", tokenString);
+    // console.log("TokenString", tokenString);
     const indexOfEqual = tokenString.indexOf("=");
 
     const tokens = tokenString.slice(indexOfEqual + 1);
     const token = tokens.slice(0, -1);
-    console.log(token);
+    // console.log(token);
     if (!token) {
       return res.status(401).json({ message: "Unauthorized" });
     }
@@ -36,8 +36,8 @@ const verifyToken = async (req, res, next) => {
 
     req.emailData = email;
 
-    console.log(req.emailData);
-    console.log("aaa");
+    // console.log(req.emailData);
+    // console.log("aaa");
 
     next();
     // res.status(200).json({ jjkj: "hbhbh" });
@@ -45,7 +45,7 @@ const verifyToken = async (req, res, next) => {
     // console.log("AA");
     // return;
   } catch (e) {
-    console.log("Error", e);
+    // console.log("Error", e);
     res.status(401).json({ message: "error" });
   }
 };

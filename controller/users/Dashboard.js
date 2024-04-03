@@ -8,10 +8,10 @@ const router = express.Router();
 const app = express();
 
 router.post("/", async (req, res) => {
-  console.log("Dashboard User");
+  // console.log("Dashboard User");
   try {
     const email = req.emailData;
-    console.log(email);
+    // console.log(email);
     const user = await User.findOne({ email });
     console.log(user);
 

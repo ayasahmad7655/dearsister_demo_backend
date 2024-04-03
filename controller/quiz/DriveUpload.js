@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
     // console.log(credentials);
     const client = await authorize();
     // console.log("CLIENTS", client);
-    console.log(req.body);
+    // console.log(req.body);
     const drive = google.drive({ version: "v3", auth: client });
 
     // // Extract PDF data from request body
@@ -59,7 +59,7 @@ router.post("/", async (req, res) => {
       media,
       fields: "id, webViewLink", // Include webViewLink for download access
     });
-    console.log(uploadedFile);
+    // console.log(uploadedFile);
     const accessLink = uploadedFile.data.webViewLink;
 
     res.json({ success: true, accessLink });
@@ -68,7 +68,7 @@ router.post("/", async (req, res) => {
     return;
   } catch (err) {
     // console.log("jjj");
-    console.log("Error", err.message);
+    // console.log("Error", err.message);
 
     res.status(500).json({ Error: err.message });
     return;

@@ -13,9 +13,9 @@ app.use(cookieParser());
 router.post("/", async (req, res) => {
   try {
     const { firstName, lastName, email, password } = req.body;
-    console.log("SIGN_UP");
-    console.log(req.body);
-    console.log(firstName);
+    // console.log("SIGN_UP");
+    // console.log(req.body);
+    // console.log(firstName);
     if (!firstName || !lastName || !email || !password) {
       res.status(400).json({ Mess: "Enter ALl the Values" });
       return;
@@ -45,15 +45,15 @@ router.post("/", async (req, res) => {
       // ... other fields as needed
     });
 
-    console.log(newQuizLive);
+    // console.log(newQuizLive);
     // newQuizLive.quizesdatas.deleteMany({
     //   attemptedQuizzes: { $undefined: true },
     // });
-    console.log("Saving Started");
+    // console.log("Saving Started");
     await newQuizLive.save();
     await newUser.save();
     await newReport.save();
-    console.log("Saving Stop");
+    // console.log("Saving Stop");
     // console.log(newUser);
     const token = jwt.sign(
       {
@@ -61,7 +61,7 @@ router.post("/", async (req, res) => {
       },
       "aadaa"
     );
-    console.log(token);
+    // console.log(token);
     // try {
     //   res.cookie("jwt", token, {});
     //   console.log("ok");
@@ -76,7 +76,7 @@ router.post("/", async (req, res) => {
     res.status(200).json({ message: "User registered Suceesfully", token });
     return;
   } catch (err) {
-    console.log("err", err);
+    // console.log("err", err);
 
     res.status(500).json({ Error: err });
     return;
