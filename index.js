@@ -29,6 +29,7 @@ const allowedOrigins = [corsOrigin1, corsOrigin2, corsOrigin3];
 app.use(
   cors({
     origin: allowedOrigins,
+    credentials: true,
   })
 );
 app.use(express.urlencoded({ extended: true }));
